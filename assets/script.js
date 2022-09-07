@@ -38,4 +38,18 @@ fetch("api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=531a6a3
 
     })
 
+// Retreive data from local storage
+searchEl.addEventListener("click", function () {
+    const searchTerm = cityEl.value;
+    getWeather(searchTerm);
+    searchHistory.push(searchTerm);
+    localStorage.setItem("search", JSON.stringify(searchHistory));
+    renderSearchHistory();
+})
 
+//Clear search history
+clearEl.addEventListener("click", function () {
+    localStorage.clear();
+    searchHistory = [];
+    renderSearchHistory();
+})
