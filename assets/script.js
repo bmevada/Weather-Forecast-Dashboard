@@ -1,0 +1,41 @@
+//Search function for weather by location
+
+var locationName = document.querySelector("#location")
+var submitButton = document.querySelector("#submit");
+
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    //create var from submission
+    var city = locationName.value.trim();
+
+    //save to local storage
+    localStorage.setItem("city", JSON.stringify(city));
+    console.log(city);
+
+})
+
+//Get data from OpenWeather URL using API Key: 
+fetch("api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=531a6a316996024b38400dc9373b220d")
+    .then(function (response) {
+
+        //Display weather forecast for today
+        todayweatherEl.classList.remove("d-none");
+
+                // Parse response to display current weather
+                const currentDate = new Date(response.data.dt * 1000);
+                const day = currentDate.getDate();
+                const month = currentDate.getMonth() + 1;
+                const year = currentDate.getFullYear();
+                nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+                let weatherPic = response.data.weather[0].icon;
+                currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+                currentPicEl.setAttribute("alt", response.data.weather[0].description);
+                currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
+                currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
+                currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+
+
+    })
+
+
