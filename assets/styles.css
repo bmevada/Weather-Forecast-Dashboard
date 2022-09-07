@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    font: 50px white center;
+}
+
+#search-city {
+    background-color: aquamarine;
+}
+
+.card-city {
+    border: 1px
+}
+
+.forecast {
+    margin: 10px
+}
+
+.main-container {
+    padding: 10px;
+}
+
+.row-weather {
+    background-color: aquamarine;
+}
