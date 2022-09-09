@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Weather Forecast Dashboard</title>
-    <link rel="stylesheet" href=".assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body>
@@ -20,8 +20,8 @@
         <div class="card-body">
             <h5>Search for a city:</h5>
                 <form class="form-inline">
-                    <input type="search" placeholder="Enter city name" class="form-control mr-sm-2 input" />
-                    <button class="btn btn-primary my-2 my-sm-0 search search-button" type="submit">
+                    <input id "location" type="search" placeholder="Enter city name" class="form-control mr-sm-2 input" />
+                    <button id="submit" class="btn btn-primary my-2 my-sm-0 search search-button" type="submit">
                         <i class="fas fa-search-location"></i>
                     </button>
                 </form>
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--Day 2-->
                 <div class="col">
                     <div class="card forecast">
@@ -124,6 +124,6 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="/assets/js/script.js"></script>
+<script src="./assets/js/script.js"></script>
 
 </html>

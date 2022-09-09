@@ -1,6 +1,6 @@
 //Search function for weather by location
-
-var locationName = document.querySelector("#location")
+var city = "city"
+var cityName = document.querySelector("#location")
 var submitButton = document.querySelector("#submit");
 
 submitButton.addEventListener("click", function (event) {
@@ -16,27 +16,31 @@ submitButton.addEventListener("click", function (event) {
 })
 
 //Get data from OpenWeather URL using API Key: 
-fetch("api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=531a6a316996024b38400dc9373b220d")
-    .then(function (response) {
+fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=531a6a316996024b38400dc9373b220d")
+    .then(response) => response(json())
+    // .then(function (response)
+    .then((data)) {
+
+        console.log(data);
 
         //Display weather forecast for today
         todayweatherEl.classList.remove("d-none");
 
-                // Parse response to display current weather
-                const currentDate = new Date(response.data.dt * 1000);
-                const day = currentDate.getDate();
-                const month = currentDate.getMonth() + 1;
-                const year = currentDate.getFullYear();
-                nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
-                let weatherPic = response.data.weather[0].icon;
-                currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
-                currentPicEl.setAttribute("alt", response.data.weather[0].description);
-                currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
-                currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
-                currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+        // Parse response to display current weather
+        const currentDate = new Date(response.data.dt * 1000);
+        const day = currentDate.getDate();
+        const month = currentDate.getMonth() + 1;
+        const year = currentDate.getFullYear();
+        nameEl.innerHTML = response.data.name + " (" + day + "/" + month + "/" + year + ") ";
+        let weatherPic = response.data.weather[0].icon;
+        currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+        currentPicEl.setAttribute("alt", response.data.weather[0].description);
+        currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
+        currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
+        currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
 
-    })
+    }
 
 // Retreive data from local storage
 searchEl.addEventListener("click", function () {
