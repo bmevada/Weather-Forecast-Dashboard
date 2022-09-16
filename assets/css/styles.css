@@ -8,7 +8,7 @@ header {
 }
 
 #search-city {
-    background-color: aquamarine;
+    background-color: rgb(196, 228, 238);
 }
 
 .card-city {
@@ -24,5 +24,5 @@ header {
 }
 
 .row-blue {
-    background-color: aquamarine;
+    background-color: rgb(196, 228, 238);
 }

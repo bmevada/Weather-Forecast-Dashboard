@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,107 +17,123 @@
     </header>
 
     <!--Add search function -->
-    <div id="search-city" class="col-md-4">
-        <div class="card-body">
-            <h5>Search for a city:</h5>
-                <form class="form-inline">
-                    <input id "location" type="search" placeholder="Enter city name" class="form-control mr-sm-2 input" />
-                    <button id="submit" class="btn btn-primary my-2 my-sm-0 search search-button" type="submit">
-                        <i class="fas fa-search-location"></i>
-                    </button>
-                </form>
-            <div class="city-list"></div>
-        </div>
-    </div>
-
-    <!-- Add containers for weather forecast-->
-    <div class="col-md-8 container-left-columns">
-        <!--Current location-->
+    <div class="container">
         <div class="row">
-            <div class="card-city">
+            <aside id="search-city" class="col-md-4">
                 <div class="card-body">
-                    <p class="current-date"></p>
-                    <p class="city"></p>
-                    <p class="weather-icon"></p>
-                    <p class="temperature"></p>
-                    <p class="humidity"></p>
-                    <p class="wind"></p>
-                    <p class="uv"></p>
+                    <h5>Search for a city:</h5>
+                    <form class="form-inline" id="searchForm">
+                        <input id="searchInput" type="search" placeholder="Enter city name"
+                            class="form-control mr-sm-2 input" />
+                        <button id="submit" class="btn btn-primary my-2 my-sm-0 search search-button"
+                            type="submit">submit<i class="fas fa-search-location"></i>
+                        </button>
+                    </form>
+                    <div class="city-list" id="history"></div>
                 </div>
-            </div>
-        </div>
+            </aside>
 
-    <!-- Add 5 day weather forecast -->
-    <div class="row-blue">
-        <div class="row">
-            <div class="weather-forecast">
-                <div class="forecast">
-                    <h5>Weather Forecast for 5 Days:</h5>
-                </div>
-            </div>
-        </div>
 
-        <!--Forecast for the 5 days-->
-        <div class="row gutters">
-        <!--Day 1-->
-        <div class="col">
-            <div class="card forecast-day">
-                <div class="card-body bg-primary">
-                    <p class="day-one-date"></p>
-                    <p class="day-one-icon"></p>
-                    <p class="day-one-temperature"></p>
-                    <p class="day-one-humidity"></p>
-                </div>
-            </div>
-        </div>
+            <!--Most this would be created in JS -->
+            <!-- Add containers for weather forecast-->
+            <div class="col-md-8 container-left-columns" id="container-left-columns">
+                <section id="today" class="mt-3">
 
-        <!--Day 2-->
-                <div class="col">
-                    <div class="card forecast">
-                        <div class="card-body bg-primary">
-                            <p class="day-two-date"></p>
-                            <p class="day-two-icon"></p>
-                            <p class="day-two-temperature"></p>
-                            <p class="day-two-humidity"></p>
+                </section>
+                <!--Current location-->
+                <div class="row">
+                    <div class="card-city">
+                        <div class="card-body">
+                            <p id="day-one-date-day0"></p>
+                            <p class="day-one-icon"><img id="day0" src="" alt="forecast icon" /></p>
+                            <p id="day-one-temperature-day0"></p>
+                            <p id="day-one-humidity-day0"></p>
+                            <p id="day-one-wind-day0"></p>
                         </div>
                     </div>
                 </div>
 
-            <!-- Day 3-->
-                <div class="col">
-                    <div class="card forecast">
-                        <div class="card-body bg-primary">
-                            <p class="day-three-date"></p>
-                            <p class="day-three-icon"></p>
-                            <p class="day-three-temperature"></p>
-                            <p class="day-three-humidity"></p>
+                <!-- Add 5 day weather forecast -->
+                <section id="forecast" class="row mt-3">
+
+                </section>
+                <div class="row-blue">
+                    <div class="row">
+                        <div class="weather-forecast">
+                            <div class="forecast">
+                                <h5>Weather Forecast for 5 Days:</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row gutters">
+                        <div class="col day1">
+                            <p>Day 1</p>
+                            <div class="card forecast-day">
+                                <div class="card-body bg-primary">
+                                    <p id="day-one-date-day1"></p>
+                                    <p class="day-one-icon"><img id="day1" src="" alt="forecast icon" /></p>
+                                    <p id="day-one-temperature-day1"></p>
+                                    <p id="day-one-humidity-day1"></p>
+                                    <p id="day-one-wind-day1"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col day2">
+                            <p>Day 2</p>
+                            <div class="card forecast">
+                                <div class="card-body bg-primary">
+                                    <p id="day-one-date-day2"></p>
+                                    <p class="day-one-icon"><img id="day2" src="" alt="forecast icon" /></p>
+                                    <p id="day-one-temperature-day2"></p>
+                                    <p id="day-one-humidity-day2"></p>
+                                    <p id="day-one-wind-day2"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col day3">
+                            <p>Day 3</p>
+                            <div class="card forecast">
+                                <div class="card-body bg-primary">
+                                    <p id="day-one-date-day3"></p>
+                                    <p class="day-one-icon"><img id="day3" src="" alt="forecast icon" /></p>
+                                    <p id="day-one-temperature-day3"></p>
+                                    <p id="day-one-humidity-day3"></p>
+                                    <p id="day-one-wind-day3"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col day4">
+                            <p>Day 4</p>
+                            <div class="card forecast">
+                                <div class="card-body bg-primary">
+                                    <p id="day-one-date-day4"></p>
+                                    <p class="day-one-icon"><img id="day4" src="" alt="forecast icon" /></p>
+                                    <p id="day-one-temperature-day4"></p>
+                                    <p id="day-one-humidity-day4"></p>
+                                    <p id="day-one-wind-day4"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col day5">
+                            <p>Day 5</p>
+                            <div class="card forecast">
+                                <div class="card-body bg-primary">
+                                    <p id="day-one-date-day5"></p>
+                                    <p class="day-one-icon"><img id="day5" src="" alt="forecast icon" /></p>
+                                    <p id="day-one-temperature-day5"></p>
+                                    <p id="day-one-humidity-day5"></p>
+                                    <p id="day-one-wind-day5"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            <!--Day 4-->
-                <div class="col">
-                    <div class="card forecast">
-                        <div class="card-body bg-primary">
-                            <p class="day-four-date"></p>
-                            <p class="day-four-icon"></p>
-                            <p class="day-four-temperature"></p>
-                            <p class="day-four-humidity"></p>
-                        </div>
-                    </div>
-                </div>
-                
-            <!--Day 5-->
-                <div class="col">
-                    <div class="card forecast">
-                        <div class="card-body bg-primary">
-                            <p class="day-five-date"></p>
-                            <p class="day-five-icon"></p>
-                            <p class="day-five-temperature"></p>
-                            <p class="day-five-humidity"></p>
-                        </div>
-                    </div>
-                </div>
 
 
 
