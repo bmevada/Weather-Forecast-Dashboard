@@ -14,6 +14,7 @@
 <body>
     <header class="container-fluid text-center text-white bg-dark p-2">
         <h1>Weather Dashboard</h1>
+        <div id="currentDay" class="text-center"></div>
     </header>
 
     <!--Add search function -->
@@ -29,6 +30,7 @@
                             type="submit">submit<i class="fas fa-search-location"></i>
                         </button>
                     </form>
+                    <button class="btn md-3" type="button" id="clear-history">Clear History</button>
                     <div class="city-list" id="history"></div>
                 </div>
             </aside>

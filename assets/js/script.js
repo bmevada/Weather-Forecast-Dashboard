@@ -1,3 +1,8 @@
+$(window).on('load', function () {
+    currentLocation();
+    checkLocalStorage();
+});
+
 //Search function for weather by location
 
 var cityName = document.querySelector("#searchInput");
@@ -11,6 +16,10 @@ weatherArea.style.display === "none";
 
 var apiKey = "531a6a316996024b38400dc9373b220d"
 var api = "https://api.openweathermap.org"
+
+//Current date and time display in header
+var currentDateToday = now.format('Do MMMM YYYY || h:mm a');
+$("#currentDay").text(currentDateToday);
 
 // Obtain city input and validate city name
 submitBtn.addEventListener("click", function (event) {
@@ -168,20 +177,39 @@ function loadlastCity(){
 
 }
 
-//Clear the search history from the page
-function clearHistory(event){
-    event.preventDefault();
-    city=[];
-    localStorage.removeItem("cityname");
-    document.location.reload();
+// Store data in local storage
+function checkLocalStorage() {
+    var storedData = localStorage.getItem('queries');
+    var dataArray = [];
+    if (!storedData) {
+        console.log("no data stored");
+    } else {
+        storedData.trim();
+        dataArray = storedData.split(',');
+        for (var i = 0; i < dataArray.length; i++) {
+            createRecentSearchBtn(dataArray[i]);
+        }
+    }
+};
 
-}
-//Click Handlers
-$("#search-button").on("click",displayWeather);
-$(document).on("click",invokePastSearch);
-$(window).on("load",loadlastCity);
-$("#clear-history").on("click",clearHistory);
 
+
+// Function to Set data in Local storage
+// function saveToLocalStorage(q) {
+//     var data = localStorage.getItem('queries');
+//     if (data) {
+//         console.log(data, q)
+
+//     } else {
+//         data = q;
+//         localStorage.setItem('queries', data);
+//     }
+//     if (data.indexOf(q) === -1) {
+//         data = data + ',' + q;
+//         localStorage.setItem('queries', data);
+//         createRecentSearchBtn(q);
+//     }
+// }
 
 // Retreive data from local storage
 // searchEl.addEventListener("click", function () {
