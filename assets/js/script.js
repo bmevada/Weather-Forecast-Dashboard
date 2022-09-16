@@ -135,6 +135,7 @@ function getForecastWeather(city) {
                 currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
                 currentPicEl.setAttribute("alt", data.list[i].weather[0].description);
                 let currentTempEl = document.querySelector("#day-one-temperature-day" + i);
+                //Convert from F to C
                 currentTempEl.innerHTML = "Temperature: " + data.list[i].main.temp + " &#176F";
                 let currentHumidityEl = document.querySelector("#day-one-humidity-day" + i);
                 currentHumidityEl.innerHTML = "Humidity: " + data.list[i].main.humidity + "%";
