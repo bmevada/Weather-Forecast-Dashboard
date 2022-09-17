@@ -1,8 +1,3 @@
-$(window).on('load', function () {
-    currentLocation();
-    checkLocalStorage();
-});
-
 //Search function for weather by location
 
 var cityName = document.querySelector("#searchInput");
@@ -14,12 +9,13 @@ var submitBtn = document.querySelector("#submit");
 var weatherArea = document.querySelector("#container-left-columns");
 weatherArea.style.display === "none";
 
-var apiKey = "531a6a316996024b38400dc9373b220d"
+// var apiKey = "531a6a316996024b38400dc9373b220d"
+var apiKey = "d91f911bcf2c0f925fb6535547a5ddc9"
 var api = "https://api.openweathermap.org"
 
 //Current date and time display in header
-var currentDateToday = now.format('Do MMMM YYYY || h:mm a');
-$("#currentDay").text(currentDateToday);
+// var currentDateToday = now.format('Do MMMM YYYY || h:mm a');
+// $("#currentDay").text(currentDateToday);
 
 // Obtain city input and validate city name
 submitBtn.addEventListener("click", function (event) {
@@ -50,9 +46,9 @@ function coordsFetch(city) {
             }
             else {
                 weatherArea.style.display === "block";
-                getForecastWeather(city);
-                //createHistory(city);
-                //weatherFetch(data[0]);
+                // getForecastWeather(city);
+                // createHistory(city);
+                weatherFetch(data[0]);
             }
         })
         .catch(function (err) {
@@ -69,19 +65,52 @@ function weatherFetch(location) {
             return res.json();
         })
         .then(function (data) {
-            weatherData(city, data);
+            weatherData(cityLocation, data);
         })
         .catch(function (err) {
             console.error(err);
         })
 }
 
-function weatherData(city, data) {
-    todaysWeatherRender(city, data.current, data.timeZone);
-    forecastRender(data.daily, data.timeZone);
+function weatherData(cityLocation, data) {
+    todaysWeatherRender(cityLocation, data.current, data.timezone);
+    forecastRender(data.daily, data.timezone);
 }
 
-function todaysWeatherRender(city, weather, timeZone) {
+function todaysWeatherRender(cityLocation, weather, timezone) {
+    var date = dayjs().tz(timezone).format('M/D/YYYY');
+    var tempc = weather.temp;
+    console.log (tempc);
+    var windmph= weather.wind_speed;
+    var uvi=weather.uvi;
+    // weather.current
+    var humidity =weather.humidity;
+    var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+    var iconDescription = weather.weather[0].description || weather[0].main;
+
+    var card= document.createElement("div");
+    var cardbody= document.createElement("div");
+    var cardtitle= document.createElement("h3");
+    var tempEl= document.createElement("p");
+    var windEL= document.createElement("p");
+    var uviEl= document.createElement("p");
+    var humidityEL= document.createElement("p");
+    var uviBadgeEl= document.createElement("button");
+    card.setAttribute("class", "card");
+    cardbody.setAttribute("class", "card-body");
+    card.append(cardbody);
+    cardtitle.setAttribute("class", "h3 card-title");
+    tempEl.setAttribute("class", "card-text");
+    humidityEl.setAttribute("class", "card-text");
+    weathericonEl.setAttribute("src", iconUrl);
+    weathericonEl.setAttribute("alt", iconDescription);
+    weathericonEl.setAttribute("class", "weather-img");
+    cardtitle.textContent=`${city} (${date})`;
+
+
+    cardbody.append(cardtitle, tempEL, windEL, humidityEL);
+
+
 
 }
 
@@ -124,23 +153,23 @@ function getForecastWeather(city) {
 
             // Parse response to display current weather
             for (let i = 0; i <= 5; i++) {
-                const currentDate = new Date(data.list[i].dt * 1000);
-                const day = currentDate.getDate();
-                const month = currentDate.getMonth() + 1;
-                const year = currentDate.getFullYear();
-                let currentDateEl = document.querySelector("#day-one-date-day" + i);
-                currentDateEl.innerHTML = data.city.name + " (" + day + "/" + month + "/" + year + ") ";;
-                let weatherPic = data.list[i].weather[0].icon;
-                let currentPicEl = document.querySelector("#day" + i);
-                currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
-                currentPicEl.setAttribute("alt", data.list[i].weather[0].description);
-                let currentTempEl = document.querySelector("#day-one-temperature-day" + i);
-                //Convert from F to C
-                currentTempEl.innerHTML = "Temperature: " + data.list[i].main.temp + " &#176F";
-                let currentHumidityEl = document.querySelector("#day-one-humidity-day" + i);
-                currentHumidityEl.innerHTML = "Humidity: " + data.list[i].main.humidity + "%";
-                let currentWindEl = document.querySelector("#day-one-wind-day" + i);
-                currentWindEl.innerHTML = "Wind Speed: " + data.list[i].wind.speed + " MPH";
+                // const currentDate = new Date(data.list[i].dt * 1000);
+                // const day = currentDate.getDate();
+                // const month = currentDate.getMonth() + 1;
+                // const year = currentDate.getFullYear();
+                // let currentDateEl = document.querySelector("#day-one-date-day" + i);
+                // currentDateEl.innerHTML = data.city.name + " (" + day + "/" + month + "/" + year + ") ";;
+                // let weatherPic = data.list[i].weather[0].icon;
+                // let currentPicEl = document.querySelector("#day" + i);
+                // currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+                // currentPicEl.setAttribute("alt", data.list[i].weather[0].description);
+                // let currentTempEl = document.querySelector("#day-one-temperature-day" + i);
+                // //Convert from F to C
+                // currentTempEl.innerHTML = "Temperature: " + data.list[i].main.temp + " &#176F";
+                // let currentHumidityEl = document.querySelector("#day-one-humidity-day" + i);
+                // currentHumidityEl.innerHTML = "Humidity: " + data.list[i].main.humidity + "%";
+                // let currentWindEl = document.querySelector("#day-one-wind-day" + i);
+                // currentWindEl.innerHTML = "Wind Speed: " + data.list[i].wind.speed + " MPH";
             }
 
 
