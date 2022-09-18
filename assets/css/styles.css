@@ -31,8 +31,8 @@ h1 {
 }
 
 .row {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .row-blue {
     background-color: rgb(196, 228, 238);
