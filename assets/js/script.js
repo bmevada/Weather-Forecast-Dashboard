@@ -100,12 +100,34 @@ function todaysWeatherRender(cityLocation, weather, timezone) {
     cardbody.setAttribute("class", "card-body");
     card.append(cardbody);
     cardtitle.setAttribute("class", "h3 card-title");
+
     tempEl.setAttribute("class", "card-text");
     humidityEl.setAttribute("class", "card-text");
     weathericonEl.setAttribute("src", iconUrl);
     weathericonEl.setAttribute("alt", iconDescription);
     weathericonEl.setAttribute("class", "weather-img");
     cardtitle.textContent=`${city} (${date})`;
+    windEL.textContent=`${windmph}`;
+    humidityEL.textContent=`${"%"}`;
+    tempEL.textContent=`${Celsius}`;
+
+
+    // true and false for the uvi
+    uviEl.textContent = 'uv index: ';
+    uviBadge.classList.add('btn', 'btn-sm');
+    if (uvi < 3) {
+        uviBadge.classList.add('btn-success');
+    } else if (uvi < 7) {
+        uviBadge.classList.add('btn-warning');
+
+    } else {
+        uviBadge.classList.add('btn-danger');
+    }
+    uviBadge.textContent = uvi;
+    uvEl.append(uvIBadge);
+    cardBody.append(uvEl);
+    var todayContainer = document.querySelector('.today');
+    todayContainer.append(card);
 
 
     cardbody.append(cardtitle, tempEL, windEL, humidityEL);

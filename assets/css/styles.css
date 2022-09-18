@@ -5,6 +5,12 @@
 
 header {
     font: 50px white center;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-kerning: none;
 }
 
 #search-city {
@@ -24,6 +30,18 @@ header {
     padding: 5px;
 }
 
+.row {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 .row-blue {
     background-color: rgb(196, 228, 238);
+}
+
+footer {
+    text-align: center;
+}
+
+h6 {
+    text-align: center;
 }
