@@ -189,7 +189,7 @@ function forecastCard(forecast, timeZone) {
     humidityEL.textContent = `Humidity: ${humidity}`;
     tempEL.textContent = `Temp: ${tempc}`;
     forecastContainer.append(col);
-    
+
 
 }
 
