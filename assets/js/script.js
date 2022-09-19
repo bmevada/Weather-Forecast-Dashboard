@@ -153,23 +153,23 @@ function todaysWeatherRender(city, weather, timezone) {
 var forecastContainer = document.getElementById("forecast");
 
 
-function forecastRender(dailyForecast, timeZone) {
+function forecastRender(dailyForecast, timezone) {
     // create time zone - this will require a start and end - 2 variables. use days js. 
     // Create div first and h4 element - title El
     // 5 day forecast 
-    var startDt = dayjs().tz(timeZone).add(1, "day").startOf("day").unix();
-    var endDt = dayjs().tz(timeZone).add(6, "day").startOf("day").unix();
+    var startDt = dayjs().tz(timezone).add(1, "day").startOf("day").unix();
+    var endDt = dayjs().tz(timezone).add(6, "day").startOf("day").unix();
 
     forecastContainer.innerHTML = "";
 
     for (let i = 0; i < dailyForecast.length; i++) {
         if (dailyForecast[i].dt >= startDt && dailyForecast[i].dt < endDt) {
-            forecastCard(dailyForecast[i], timeZone);
+            forecastCard(dailyForecast[i], timezone);
         }
     }
 }
 // Call function dynamically
-function forecastCard(forecast, timeZone) {
+function forecastCard(forecast, timezone) {
     //Pull each of the data - var tempc=forecast.temp.day - as API
     // forecast.temp// 
     // after calling out data, create elements for the cards- card body and card title and card text - append the data and card to the html.
