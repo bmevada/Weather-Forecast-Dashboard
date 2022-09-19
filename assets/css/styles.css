@@ -8,8 +8,9 @@
 
 
 header {
-    font: 50px white center;
+    font: 100px white center;
     text-align: center;
+    /* background-color: blue; */
 }
 
 h1 {
