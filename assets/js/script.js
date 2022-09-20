@@ -11,7 +11,7 @@ var todayContainer = document.querySelector('#today');
 var humidityEl;
 var humidity;
 var cityHistory = [];
-var clearhistoryBtn = document.querySelector("#clearHistory")
+var clearhistoryBtn = document.querySelector("#clearhistory")
 
 var historyContainer = document.querySelector("#history")
 var forecastContainer = document.getElementById("forecast");
@@ -130,7 +130,7 @@ function weatherData(city, data) {
     weathericonEl.setAttribute("alt", iconDescription);
     weathericonEl.setAttribute("class", "weather-img");
     cardtitle.textContent = `${city} (${date})`;
-    windEl.textContent = `Wind: ${windmph}mph`;
+    windEl.textContent = `Wind: ${windmph} kmph`;
     humidityEl.textContent = `Humidity: ${humidity}%`;
     tempEl.textContent = `Temp: ${tempc}°C`
     cardBody.append(cardtitle, weathericonEl, tempEl, windEl, humidityEl);
@@ -216,7 +216,7 @@ function forecastCard(forecast, timeZone) {
     cardtitle.textContent = dayjs.unix(unixTs).tz(timeZone).format("ddd D MMM");
     weathericon.setAttribute("src", iconUrl);
     weathericon.setAttribute("alt", iconDescription);
-    windEl.textContent = `Wind: ${windmph}mph`;
+    windEl.textContent = `Wind: ${windmph} kmph`;
     humidityEl.textContent = `Humidity: ${humidity}%`;
     tempEl.textContent = `Temp: ${tempc}°C`
     forecastContainer.append(col);
@@ -302,11 +302,16 @@ historyContainer.addEventListener("click", function (e) {
   }
 
 //Clear search history
-function clearHistory (event) {
-    event.preventDefault();
-    cityName = [];
-    localStorage.removeItem("cityName");
-    document.location.reload();
+    clearhistoryBtn.onclick=clearItems;
+    function clearItems () {
+    // e.preventDefault();
+    // // cityName = [];
+    window.localStorage.removeItem('city-history');
+    // window.localStorage.clear();
+    // document.location.reload();
+    // window.localStorage.clear("city-history");
+    console.log(localStorage);
+    window.location.reload ();
 }
 
 

@@ -1,11 +1,12 @@
 * {
     box-sizing: border-box;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: relative;
+    line-height: 1;
     row-gap: 10px;
 }
-.main-container {
-    display: flex;
+.container {
+    /* display: flex-container; */
+    margin: 5px;
 }
 
 
@@ -17,7 +18,7 @@ header {
 
 footer {
     padding: 10px;
-    font: 100px, white center, bolder;
+    font: 50px, white center, bolder;
     background-image: linear-gradient(45deg,rgb(57, 42, 99), rgb(32, 141, 178));
    
 }
@@ -29,13 +30,26 @@ h1 {
 
 #search-city {
     background-color: rgb(196, 228, 238);
-    display: relative;
+    /* display: flex-container; */
 }
 
 
 .card-city {
     border: 2px
 }
+
+.city-list {
+    margin: 2px;
+    padding: 2px;
+}
+
+.btn-history {
+    display:flex;
+    flex-flow: column-reverse;
+    margin: 5px;
+
+}
+
 
 .forecast {
     margin: 2px
