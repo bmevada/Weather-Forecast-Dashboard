@@ -98,7 +98,7 @@ function weatherData(city, data) {
 }
 
     // weather.current
-function todaysWeatherRender(city, weather, timezone) {
+    function todaysWeatherRender(city, weather, timezone) {
     var date = dayjs().tz(timezone).format('DD/MM/YYYY');
     console.log(date);
     var tempc = weather.temp;
@@ -116,7 +116,7 @@ function todaysWeatherRender(city, weather, timezone) {
     var windEl = document.createElement("p");
     var uviEl = document.createElement("p");
     var humidityEl = document.createElement("p");
-    uviBadgeEl = document.createElement("button");
+    var uviBadgeEl = document.createElement("button");
     var weathericonEl = document.createElement('img');
     card.setAttribute("class", "card");
     cardbody.setAttribute("class", "card-body");
@@ -136,17 +136,17 @@ function todaysWeatherRender(city, weather, timezone) {
 
     // true and false for the uvi
     uviEl.textContent = 'uv index';
-    uviBadge.classList.add('btn', 'btn-sm');
+    uviBadgeEl.classList.add('btn', 'btn-sm');
     if (uvi < 3) {
-        uviBadge.classList.add('btn-success');
+        uviBadgeEl.classList.add('btn-success');
     } else if (uvi < 7) {
-        uviBadge.classList.add('btn-warning');
+        uviBadgeEl.classList.add('btn-warning');
 
     } else {
-        uviBadge.classList.add('btn-danger');
+        uviBadgeEl.classList.add('btn-danger');
     }
     uviBadgeEl.textContent = uvi;
-    uviEl.append(uviBadge);
+    uviEl.append(uviBadgeEl);
     cardBody.append(uviEl);
 
     // var todayContainer = document.querySelector('.today');
