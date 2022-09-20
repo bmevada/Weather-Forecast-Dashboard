@@ -131,11 +131,11 @@ function weatherData(city, data) {
     cardtitle.textContent = `${city} (${date})`;
     windEl.textContent = `Wind: ${windmph}mph`;
     humidityEl.textContent = `Humidity: ${humidity}%`;
-    tempEl.textContent = `Temp: ${tempc}C`
-    cardBody.append(cardtitle, tempEl, windEl, humidityEl);
+    tempEl.textContent = `Temp: ${tempc}°C`
+    cardBody.append(cardtitle, weathericonEl, tempEl, windEl, humidityEl);
 
     // true and false for the uvi
-    uviEl.textContent = 'UV Index';
+    uviEl.textContent = 'UV Index: ';
     uviBadgeEl.classList.add('btn', 'btn-sm');
     if (uvi < 3) {
         uviBadgeEl.classList.add('btn-success');
@@ -217,7 +217,7 @@ function forecastCard(forecast, timeZone) {
     weathericon.setAttribute("alt", iconDescription);
     windEl.textContent = `Wind: ${windmph}mph`;
     humidityEl.textContent = `Humidity: ${humidity}%`;
-    tempEl.textContent = `Temp: ${tempc}C`
+    tempEl.textContent = `Temp: ${tempc}°C`
     forecastContainer.append(col);
 
 
@@ -414,9 +414,9 @@ historyContainer.addEventListener("click", function (e) {
 // //     renderSearchHistory();
 // // })
 
-// //Clear search history
-// // clearEl.addEventListener("click", function () {
-// //     localStorage.clear();
-// //     searchHistory = [];
-// //     renderSearchHistory();
-// // })
+// // Clear search history
+// clearEl.addEventListener("click", function () {
+//     localStorage.clear();
+//     searchHistory = [];
+//     renderSearchHistory();
+// })

@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 .main-container {
     display: flex;
@@ -8,14 +8,16 @@
 
 
 header {
-    font: 100px white center;
+    font: 100px white center, bolder;
     text-align: center;
-    /* background-color: blue; */
+    background-image: linear-gradient(45deg,rgb(57, 42, 99), rgb(32, 141, 178));
 }
 
 footer {
-    font: 100px white center;
-    text-align: center; 
+    padding: 10px;
+    font: 100px, white center, bolder;
+    background-image: linear-gradient(45deg,rgb(57, 42, 99), rgb(32, 141, 178));
+   
 }
 
 h1 {
@@ -25,7 +27,7 @@ h1 {
 
 #search-city {
     background-color: rgb(196, 228, 238);
-    display: flexbox;
+    display: flex;
 }
 
 
@@ -49,10 +51,10 @@ h1 {
     background-color: rgb(196, 228, 238);
 }
 
-footer {
-    text-align: center;
-}
 
 h6 {
     text-align: center;
+    color: azure;
+    text-shadow: blue;
+    font-size: larger;
 }
