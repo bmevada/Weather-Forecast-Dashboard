@@ -8,8 +8,9 @@ var historyBtn = document.querySelector("#history");
 var submitBtn = document.querySelector("#submit");
 var weatherArea = document.querySelector("#container-left-columns");
 var todayContainer = document.querySelector('#today');
+var humidityEL;
 var humidity;
-var humidEl;
+var cityHistory = [];
 
 var historyContainer = document.querySelector("#history")
 var forecastContainer = document.getElementById("forecast");
@@ -261,6 +262,7 @@ historyContainer.addEventListener("click", function (e) {
     cityHistory.push(city);
     console.log(city);
     console.log(cityHistory);
+
   
     localStorage.setItem('city-history', JSON.stringify(cityHistory));
     displayHistory();
