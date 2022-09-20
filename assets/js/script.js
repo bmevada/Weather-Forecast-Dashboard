@@ -99,7 +99,7 @@ function weatherData(city, data) {
 
     // weather.current
     function todaysWeatherRender(city, weather, timezone) {
-    var date = dayjs().tz(timezone).format('DD/MM/YYYY');
+    var date = dayjs().tz(timezone).format('ddd D MMM YYYY h:mm A');
     console.log(date);
     var tempc = weather.temp;
     console.log(tempc);
@@ -212,7 +212,7 @@ function forecastCard(forecast, timeZone) {
     windEl.setAttribute("class", "card-text");
     humidityEl.setAttribute("class", "card-text");
 
-    cardtitle.textContent = dayjs.unix(unixTs).tz(timeZone).format("DD/MM/YYYY");
+    cardtitle.textContent = dayjs.unix(unixTs).tz(timeZone).format("ddd D MMM");
     weathericon.setAttribute("src", iconUrl);
     weathericon.setAttribute("alt", iconDescription);
     windEl.textContent = `Wind: ${windmph}mph`;

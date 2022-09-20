@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: relative;
+    row-gap: 10px;
 }
 .main-container {
     display: flex;
@@ -27,7 +29,7 @@ h1 {
 
 #search-city {
     background-color: rgb(196, 228, 238);
-    display: flex;
+    display: relative;
 }
 
 
