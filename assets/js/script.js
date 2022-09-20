@@ -8,7 +8,7 @@ var historyBtn = document.querySelector("#history");
 var submitBtn = document.querySelector("#submit");
 var weatherArea = document.querySelector("#container-left-columns");
 var todayContainer = document.querySelector('#today');
-var humidityEL;
+var humidityEl;
 var humidity;
 var cityHistory = [];
 
@@ -113,9 +113,9 @@ function todaysWeatherRender(city, weather, timezone) {
     var cardbody = document.createElement("div");
     var cardtitle = document.createElement("h3");
     var tempEl = document.createElement("p");
-    var windEL = document.createElement("p");
+    var windEl = document.createElement("p");
     var uviEl = document.createElement("p");
-    var humidityEL = document.createElement("p");
+    var humidityEl = document.createElement("p");
     uviBadgeEl = document.createElement("button");
     var weathericonEl = document.createElement('img');
     card.setAttribute("class", "card");
@@ -129,10 +129,10 @@ function todaysWeatherRender(city, weather, timezone) {
     weathericonEl.setAttribute("alt", iconDescription);
     weathericonEl.setAttribute("class", "weather-img");
     cardtitle.textContent = `${city} (${date})`;
-    windEL.textContent = `Wind: ${windmph}`;
-    humidityEL.textContent = `Humidity: ${humidity}`;
-    tempEL.textContent = `Temp: ${tempc}`;
-    cardbody.append(cardtitle, tempEL, windEL, humidityEL);
+    windEl.textContent = `Wind: ${windmph}`;
+    humidityEl.textContent = `Humidity: ${humidity}`;
+    tempEl.textContent = `Temp: ${tempc}`;
+    cardbody.append(cardtitle, tempEl, windEl, humidityEl);
 
     // true and false for the uvi
     uviEl.textContent = 'uv index';
@@ -197,27 +197,27 @@ function forecastCard(forecast, timeZone) {
     var cardBody = document.createElement("div");
     var cardtitle = document.createElement("h5");
     var weathericon = document.createElement("img");
-    var tempEL = document.createElement("p");
-    var windEL = document.createElement("p");
-    var humidityEL = document.createElement("p");
+    var tempEl = document.createElement("p");
+    var windEl = document.createElement("p");
+    var humidityEl = document.createElement("p");
     col.append(card);
     card.append(cardBody);
-    cardBody.append(cardtitle, weathericon, tempEL, windEL, humidityEL);
+    cardBody.append(cardtitle, weathericon, tempEl, windEl, humidityEl);
     col.setAttribute("class", "col-md");
     col.classList.add("5-day-card");
     card.setAttribute("class", "card bg-primary h-100 text-white");
     cardbody.setAttribute("class", "card-body p-2");
     cardtitle.setAttribute("class", "card-title");
-    tempEL.setAttribute("class", "card-text");
-    windEL.setAttribute("class", "card-text");
+    tempEl.setAttribute("class", "card-text");
+    windEl.setAttribute("class", "card-text");
     humidityEl.setAttribute("class", "card-text");
 
     cardtitle.textContent = dayjs.unix(unixTs).tz(timeZone).format("DD/MM/YYYY");
     weathericon.setAttribute("src", iconUrl);
     weathericon.setAttribute("alt", iconDescription);
-    windEL.textContent = `Wind: ${windmph}`;
-    humidityEL.textContent = `Humidity: ${humidity}`;
-    tempEL.textContent = `Temp: ${tempc}`;
+    windEl.textContent = `Wind: ${windmph}`;
+    humidityEl.textContent = `Humidity: ${humidity}`;
+    tempEl.textContent = `Temp: ${tempc}`;
     forecastContainer.append(col);
 
 
