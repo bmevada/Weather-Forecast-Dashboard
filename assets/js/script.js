@@ -110,7 +110,7 @@ function weatherData(city, data) {
     var iconDescription = weather.weather[0].description || weather[0].main;
 
     var card = document.createElement("div");
-    var cardbody = document.createElement("div");
+    var cardBody = document.createElement("div");
     var cardtitle = document.createElement("h3");
     var tempEl = document.createElement("p");
     var windEl = document.createElement("p");
@@ -119,8 +119,8 @@ function weatherData(city, data) {
     var uviBadgeEl = document.createElement("button");
     var weathericonEl = document.createElement('img');
     card.setAttribute("class", "card");
-    cardbody.setAttribute("class", "card-body");
-    card.append(cardbody);
+    cardBody.setAttribute("class", "card-body");
+    card.append(cardBody);
     cardtitle.setAttribute("class", "h3 card-title");
     cardtitle.classList.add("row-blue");
     tempEl.setAttribute("class", "card-text");
@@ -132,7 +132,7 @@ function weatherData(city, data) {
     windEl.textContent = `Wind: ${windmph}`;
     humidityEl.textContent = `Humidity: ${humidity}`;
     tempEl.textContent = `Temp: ${tempc}`;
-    cardbody.append(cardtitle, tempEl, windEl, humidityEl);
+    cardBody.append(cardtitle, tempEl, windEl, humidityEl);
 
     // true and false for the uvi
     uviEl.textContent = 'uv index';
@@ -206,7 +206,7 @@ function forecastCard(forecast, timeZone) {
     col.setAttribute("class", "col-md");
     col.classList.add("5-day-card");
     card.setAttribute("class", "card bg-primary h-100 text-white");
-    cardbody.setAttribute("class", "card-body p-2");
+    cardBody.setAttribute("class", "card-body p-2");
     cardtitle.setAttribute("class", "card-title");
     tempEl.setAttribute("class", "card-text");
     windEl.setAttribute("class", "card-text");
