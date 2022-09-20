@@ -76,7 +76,7 @@ function weatherFetch(location) {
     console.log(location);
     var city = location.name;
     console.log(city);
-    var apiUrl = `${api}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`;
+    var apiUrl = `${api}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${apiKey}`;
     fetch(apiUrl)
         .then(function (res) {
             return res.json();
@@ -129,13 +129,13 @@ function weatherData(city, data) {
     weathericonEl.setAttribute("alt", iconDescription);
     weathericonEl.setAttribute("class", "weather-img");
     cardtitle.textContent = `${city} (${date})`;
-    windEl.textContent = `Wind: ${windmph}`;
-    humidityEl.textContent = `Humidity: ${humidity}`;
-    tempEl.textContent = `Temp: ${tempc}`;
+    windEl.textContent = `Wind: ${windmph}mph`;
+    humidityEl.textContent = `Humidity: ${humidity}%`;
+    tempEl.textContent = `Temp: ${tempc}C`
     cardBody.append(cardtitle, tempEl, windEl, humidityEl);
 
     // true and false for the uvi
-    uviEl.textContent = 'uv index';
+    uviEl.textContent = 'UV Index';
     uviBadgeEl.classList.add('btn', 'btn-sm');
     if (uvi < 3) {
         uviBadgeEl.classList.add('btn-success');
@@ -215,9 +215,9 @@ function forecastCard(forecast, timeZone) {
     cardtitle.textContent = dayjs.unix(unixTs).tz(timeZone).format("DD/MM/YYYY");
     weathericon.setAttribute("src", iconUrl);
     weathericon.setAttribute("alt", iconDescription);
-    windEl.textContent = `Wind: ${windmph}`;
-    humidityEl.textContent = `Humidity: ${humidity}`;
-    tempEl.textContent = `Temp: ${tempc}`;
+    windEl.textContent = `Wind: ${windmph}mph`;
+    humidityEl.textContent = `Humidity: ${humidity}%`;
+    tempEl.textContent = `Temp: ${tempc}C`
     forecastContainer.append(col);
 
 
