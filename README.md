@@ -25,7 +25,7 @@ SO THAT I can plan a trip ahead accordingly
 
 GIVEN a weather dashboard with form inputs
 
-<img src= "./images/main-page.png'>
+<img src= "./images/main-page.png">
 
 WHEN the user searches for a city
 
@@ -43,18 +43,18 @@ WHEN the user views future weather conditions for that city
 
 THEN the user is presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 
-<img src= "./images/search.png'>
+<img src= "./images/search.png">
 
 WHEN the user searches for an incorrect city
 
 THEN the user will be prompted with "Location not found"
 
-<img src= "./images/incorrect.png'>
+<img src= "./images/incorrect.png">
 
 WHEN the user clicks on a city in the search history
 
 THEN the user again is presented with current and future conditions for that city
 
-<img src= "./images/search-history.png'>
+<img src= "./images/search-history.png">
 
 
