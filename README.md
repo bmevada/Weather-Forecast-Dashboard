@@ -2,9 +2,9 @@
 Week 6: Weather Dashboard - Using Server-Side APIs
 
 ## Weather Dashboard
-A weather forecast dashboard application has been created to allow the user to view the current weather conditions of the given city and also the future 
+A weather forecast dashboard application has been created to allow the user to view the current weather conditions of the given city and also the future.
 
-This app runs in the browser and feature dynamically updated HTML, JavaScript, CSS powered by jQuery, Bootstrap and Moment JS. It is a clean and polished, responsive user interface that adapts to multiple screen sizes and responds to user interface.
+This app runs in the browser and feature dynamically updated HTML, JavaScript, CSS powered by jQuery, Bootstrap, Moment JS and Server-side API - OpenWeather. It is a clean and polished, responsive user interface that adapts to multiple screen sizes and responds to user interface.
 
 ## Deployed Website
 
@@ -57,4 +57,25 @@ THEN the user again is presented with current and future conditions for that cit
 
 <img src= "./images/search-history.png">
 
+## Development Technologies Used
+
+ - HTML
+ - JavaScript
+ - Days JS
+ - CSS powered by jQuery
+ - Bootstrap
+ - Moment JS
+ - Server-side API - OpenWeather
+ - Responsive - update searches, mobile friendly
+ - Interactive - respond to user input - search, save and query function
+ - Use client-side storage to store persistent data - save and clear  history function
+
+## Referencing
+
+ - Open Weather Map API: https://openweathermap.org/
+ - Bootstrap - https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css
+  - Font Awesome - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+ - Days JS (Time-zone)- https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js
+
+ 
 
