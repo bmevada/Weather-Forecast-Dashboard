@@ -16,7 +16,7 @@ This app runs in the browser and feature dynamically updated HTML, JavaScript, C
 
 ## User Story
 
-AS A traveller
+AS a traveller
 
 I WANT to see the weather outlook for multiple cities 
 
